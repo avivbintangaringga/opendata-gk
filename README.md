@@ -1,18 +1,57 @@
-# Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Open Data Gunungkidul
 
-## Recommended IDE Setup
+Web frontend for Open Data Gunungkidul using Vue 3 
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support For `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Features
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- Vue 3
+- Typescript
+- Single Page Application (SPA)
+- Progressive Web App (PWA)
+- Built in XLSX, DOCX, PDF, and Images Viewer
+
+
+## Deployment
+
+Make sure you have Node installed
+
+Clone the repository
+
+```bash
+git clone https://github.com/avivbintangaringga/opendata-gk.git
+```
+
+Change the directory
+
+```bash
+cd opendata-gk
+```
+
+Change the variables inside the .env files
+```env
+VITE_CKAN_BASE_URL=https://data.demakkab.go.id/
+VITE_CORS_PROXY=
+```
+[Click here for the CORS Proxy](https://github.com/avivbintangaringga/cloudflare-cors-proxy)
+
+
+
+Install dependencies using NPM
+```bash
+npm install
+```
+
+Build the project
+```
+npm run build
+```
+
+Copy the generated files inside the **dist** directory to your web hoster
+## Demo
+
+[Click here](https://opendata-gk.pages.dev)
+
