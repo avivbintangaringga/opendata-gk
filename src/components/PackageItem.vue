@@ -3,8 +3,16 @@
     class="p-4 flex flex-col border md:border-none items-start md:flex-row md:items-center hover:bg-hover rounded-xl hover:cursor-pointer select-none"
     @click="onClick"
   >
-    <img v-if="data.organization.image_url" :src="getImageUrl(data.organization.image_url)" class="mb-4 md:mb-0 mx-4 h-28 w-auto md:w-32 md:h-full self-center" />
-    <i-mdi:file-graph v-if="!data.organization.image_url" class="mb-4 md:mb-0 mx-4 h-20 w-auto md:w-32 self-center text-secondary" />
+    <img
+      v-if="data.organization.image_url"
+      :src="getImageUrl(data.organization.image_url)"
+      class="mb-4 md:mb-0 mx-4 h-28 w-auto md:w-32 md:h-full self-center"
+      :alt="data.organization.name"
+    />
+    <i-mdi:file-graph
+      v-if="!data.organization.image_url"
+      class="mb-4 md:mb-0 mx-4 h-20 w-auto md:w-32 self-center text-secondary"
+    />
 
     <div class="flex flex-col grow">
       <div class="w-full line-clamp-2 text-text font-semibold">
@@ -13,7 +21,7 @@
       <div
         class="w-full inline-flex gap-2 items-center text-gray-500 line-clamp-1 mt-2 text-sm"
       >
-        <i-material-symbols:person class="shrink-0"/>
+        <i-material-symbols:person class="shrink-0" />
         <div class="line-clamp-1">
           {{ data.organization.title }}
         </div>
@@ -47,7 +55,7 @@
       <div
         class="w-full inline-flex flex-wrap gap-2 py-2 items-center text-gray-500 line-clamp-1"
       >
-        <Chip v-for="d in tags" :key="d" :label="d" class=" text-sm"/>
+        <Chip v-for="d in tags" :key="d" :label="d" class="text-sm" />
       </div>
       <!-- <div class="w-full text-gray-500 line-clamp-1">
         {{ data.notes }}
@@ -63,7 +71,7 @@
 <script lang="ts" setup>
 import { Package } from "../api/models";
 import router from "../router";
-import { DateTime } from 'luxon'
+import { DateTime } from "luxon";
 
 let props = defineProps<{
   data: Package;
@@ -78,14 +86,16 @@ let allFileTypes = data.resources.map((x) =>
 
 let types = new Set(allFileTypes);
 
-let date = DateTime.fromISO(data.metadata_modified).setLocale('id')
-let dateString = date.toFormat("dd MMMM yyyy HH:mm")
-let fromNow = date.toRelative()
+let date = DateTime.fromISO(data.metadata_modified).setLocale("id");
+let dateString = date.toFormat("dd MMMM yyyy HH:mm");
+let fromNow = date.toRelative();
 
 const getImageUrl = (url: string | undefined) => {
-    if (!url) return
-    return url.startsWith("http") ? url : import.meta.env.VITE_CKAN_BASE_URL +  "/uploads/group/" + url
-}
+  if (!url) return;
+  return url.startsWith("http")
+    ? url
+    : import.meta.env.VITE_CKAN_BASE_URL + "/uploads/group/" + url;
+};
 
 const onClick = () => {
   router.push({
@@ -95,5 +105,4 @@ const onClick = () => {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

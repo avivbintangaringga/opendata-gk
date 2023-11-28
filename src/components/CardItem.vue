@@ -1,6 +1,6 @@
 <template>
   <div class="p-8 w-full sm:w-64 rounded-xl border flex flex-col items-center gap-2 hover:bg-hover  hover:cursor-pointer select-none">
-    <img v-if="props.data.image_display_url" :src="getImageUrl(props.data.image_display_url)" class="h-20 w-auto" />
+    <img v-if="props.data.image_display_url" :src="getImageUrl(props.data.image_display_url)" class="h-20 w-auto" :alt="props.data.display_name" />
     <i-bi:building-fill v-if="!props.data.image_display_url && props.data.is_organization" class="h-20 w-auto text-secondary" />
     <i-material-symbols:folder v-if="!props.data.image_display_url && !props.data.is_organization" class="h-20 w-auto text-secondary" />
     <Badge

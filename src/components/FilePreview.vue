@@ -116,6 +116,7 @@
       >
         <img
           :src="'data:image/png;base64,' + arrayBufferToBase64(arrayBuffer)"
+          alt="File"
           class="shadow-lg z-10 max-w-full"
         />
       </div>

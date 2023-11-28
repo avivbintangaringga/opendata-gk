@@ -5,7 +5,7 @@
     >
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div class="flex flex-col gap-4">
-          <img src="/resources/images/logo-gray.png" class="h-12 w-fit" />
+          <img src="/resources/images/logo-gray.png" class="h-12 w-fit" alt="Logo Open Data" />
 
           <a class="flex flex-row gap-2 items-center" href="mailto:kominfo@gunungkidulkab.go.id">
             <i-material-symbols:mail-rounded class="shrink-0" />
@@ -45,9 +45,10 @@
           <div class="flex flex-row gap-4">
             <img
               src="/resources/images/gunungkidul-gray.png"
+              alt="Logo Gunungkidul"
               class="h-12 w-fit"
             />
-            <img src="/resources/images/kominfo-gray.png" class="h-12 w-fit" />
+            <img src="/resources/images/kominfo-gray.png" class="h-12 w-fit" alt="Logo Kominfo" />
           </div>
         </div>
       </div>

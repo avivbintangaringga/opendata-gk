@@ -9,6 +9,7 @@
 
       <img
         src="/resources/images/illustrations/building.svg"
+        alt="Ilustrasi organisasi"
         class="ml-8 w-1/5 h-40"
       />
     </div>

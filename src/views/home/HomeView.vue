@@ -22,7 +22,7 @@
           </div>
           <img
             src="/resources/images/illustrations/data.svg"
-            alt=""
+            alt="Ilustrasi data"
             class="w-2/6 md:w-2/5"
           />
         </div>

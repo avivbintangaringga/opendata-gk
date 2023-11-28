@@ -23,6 +23,7 @@
           </div>
           <img
             :src="getImageUrl(data?.image_display_url)"
+            :alt="data?.name"
             class="h-32 hidden ml-4 md:block"
           />
         </div>

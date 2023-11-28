@@ -32,6 +32,7 @@
         </div>
         <img
           :src="getImageUrl(data?.organization.image_url)"
+          :alt="data?.organization.name"
           class="h-32 hidden ml-4 md:block"
         />
       </div>
@@ -50,7 +51,13 @@
             <div
               class="w-full inline-flex flex-wrap gap-2 mt-4 items-center text-gray-500 line-clamp-1"
             >
-              <Chip v-for="d in data?.tags" :key="d.id" :label="d.name" @click="onTagClick(d.name)" class="hover:cursor-pointer"/>
+              <Chip
+                v-for="d in data?.tags"
+                :key="d.id"
+                :label="d.name"
+                @click="onTagClick(d.name)"
+                class="hover:cursor-pointer"
+              />
             </div>
           </div>
           <div class="text-lg font-bold mt-8">Dokumen</div>
@@ -152,9 +159,9 @@
               :data="d"
               @click="onGroupClick(d.name)"
             />
-          <div v-if="!data?.groups.length">
-            Dataset tidak masuk ke dalam grup apapun
-          </div>
+            <div v-if="!data?.groups.length">
+              Dataset tidak masuk ke dalam grup apapun
+            </div>
           </div>
         </TabPanel>
         <!-- <TabPanel header="Aktivitas"> </TabPanel> -->
@@ -168,7 +175,7 @@
 
 <script lang="ts" setup>
 import { DateTime } from "luxon";
-import { onMounted, ref, defineAsyncComponent  } from "vue";
+import { onMounted, ref, defineAsyncComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { ckanApi } from "../../api/ckan-api";
 import { Package, Resource } from "../../api/models";
@@ -185,9 +192,9 @@ let previewVisible = ref(false);
 let previewUrl = ref<string>();
 let previewTitle = ref<string>();
 
-const AsyncFilePreview = defineAsyncComponent(() => 
-  import("../../components/FilePreview.vue")
-)
+const AsyncFilePreview = defineAsyncComponent(
+  () => import("../../components/FilePreview.vue")
+);
 
 const router = useRouter();
 const onGroupClick = (id: string) => {
@@ -198,7 +205,7 @@ const onGroupClick = (id: string) => {
 };
 
 const onOrganizationClick = (id: string | undefined) => {
-  if (!id) return
+  if (!id) return;
 
   router.push({
     name: "organization-details",

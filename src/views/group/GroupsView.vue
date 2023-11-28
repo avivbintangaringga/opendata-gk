@@ -10,6 +10,7 @@
         <img
           src="/resources/images/illustrations/folder.svg"
           class="ml-8 w-1/5 h-40"
+          alt="Ilustrasi grup"
         />
       </div>
   

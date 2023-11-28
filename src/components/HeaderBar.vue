@@ -11,7 +11,7 @@
       :class="{'text-white': transparentMode}"
     >
       <router-link to="/">
-        <img src="/resources/images/logo.png" alt="Logo" class="h-8 shrink-0" />
+        <img src="/resources/images/logo.png" alt="Logo Open Data" class="h-8 shrink-0" />
       </router-link>
       <router-link
         to="/datasets"
@@ -69,7 +69,7 @@
         <router-link to="/">
           <img
             src="/resources/images/logo.png"
-            alt="Logo"
+            alt="Logo Open Data"
             class="h-8 shrink-0"
             @click="menuVisible = false"
           />
