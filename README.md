@@ -56,5 +56,5 @@ npm run build
 Copy the generated files inside the **dist** directory to your web hoster
 ## Demo
 
-[Click here](https://opendata-gk.pages.dev)
+[Click here](https://data-gk.pages.dev/)
 
