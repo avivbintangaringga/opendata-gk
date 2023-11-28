@@ -1,7 +1,7 @@
 
 # Open Data Gunungkidul
 
-Web frontend for Open Data Gunungkidul using Vue 3 
+Custom CKAN web frontend for Open Data Gunungkidul using Vue 3 
 
 
 
@@ -36,6 +36,8 @@ Change the variables inside the .env files
 VITE_CKAN_BASE_URL=https://data.demakkab.go.id/
 VITE_CORS_PROXY=
 ```
+
+Make sure CORS settings are enabled on the CKAN server, or use this CORS header injector
 [Click here for the CORS Proxy](https://github.com/avivbintangaringga/cloudflare-cors-proxy)
 
 
