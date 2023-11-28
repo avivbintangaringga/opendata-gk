@@ -146,9 +146,9 @@
               '960px':
                 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
               '1300px':
-                'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown',
               default:
-                'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput',
+                'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown JumpToPageInput',
             }"
             @update:rows="
               changePage = true;

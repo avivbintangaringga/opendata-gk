@@ -136,7 +136,7 @@
             </DataTable>
           </Dialog>
 
-          <FilePreview
+          <AsyncFilePreview
             v-model:visible="previewVisible"
             :url="previewUrl"
             :title="previewTitle"
@@ -168,12 +168,12 @@
 
 <script lang="ts" setup>
 import { DateTime } from "luxon";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, defineAsyncComponent  } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { ckanApi } from "../../api/ckan-api";
 import { Package, Resource } from "../../api/models";
 
-import FilePreview from "../../components/FilePreview.vue";
+// import FilePreview from "../../components/FilePreview.vue";
 
 const id = useRoute().params.id as string;
 let data = ref<Package>();
@@ -184,6 +184,10 @@ let isLoading = ref(true);
 let previewVisible = ref(false);
 let previewUrl = ref<string>();
 let previewTitle = ref<string>();
+
+const AsyncFilePreview = defineAsyncComponent(() => 
+  import("../../components/FilePreview.vue")
+)
 
 const router = useRouter();
 const onGroupClick = (id: string) => {
