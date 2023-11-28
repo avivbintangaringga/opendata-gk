@@ -14,7 +14,7 @@
               {{ data?.title }}
             </div>
             <div class="rounded-full bg-primary text-white w-fit py-1 px-4 inline-flex items-center mt-2 gap-2">
-              <span><i-mdi:file /></span>
+              <span><i-mdi:file-graph /></span>
               {{ data?.package_count }} dataset
             </div>
             <div class="text-secondary whitespace-pre-line mt-4">
