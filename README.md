@@ -38,6 +38,7 @@ VITE_CORS_PROXY=
 ```
 
 Make sure CORS settings are enabled on the CKAN server, or use this CORS header injector
+
 [Click here for the CORS Proxy](https://github.com/avivbintangaringga/cloudflare-cors-proxy)
 
 
