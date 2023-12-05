@@ -80,15 +80,18 @@ export default class CkanApi {
       q += ` AND organization:"${organization.trim()}"`;
     }
 
-    if (groups) {
-      groups.forEach((group) => {
-        q += ` AND groups:"${group.trim()}"`;
+    console.log("XXXXXXXXXXXX")
+    console.log(groups)
+
+    if (groups.length > 0) {
+      groups.forEach((group: string) => {
+        q += ` AND groups:"${group}"`;
       });
     }
 
-    if (tags) {
-      tags.forEach((tag) => {
-        q += ` AND tags:"${tag.trim()}"`;
+    if (tags.length > 0) {
+      tags.forEach((tag: string) => {
+        q += ` AND tags:"${tag}"`;
       });
     }
 

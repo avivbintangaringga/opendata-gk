@@ -192,8 +192,8 @@ let groups = ref<PackageGroup[]>();
 
 let query = ref();
 let selectedOrganization = ref<string>();
-let selectedGroups = ref<string[]>();
-let selectedTag = ref<string[]>();
+let selectedGroups = ref<string[]>([]);
+let selectedTag = ref<string[]>([]);
 
 let isLoading = ref(true);
 let scrollTarget = ref<HTMLDivElement>();
@@ -291,8 +291,8 @@ async function restart() {
 onMounted(async () => {
   query.value = route.query.q as string;
   selectedOrganization.value = route.query.organization as string;
-  selectedGroups.value = route.query.groups as string[];
-  selectedTag.value = route.query.tags as string[];
+  selectedGroups.value = route.query.groups ? Array.isArray(route.query.groups) ? route.query.groups as string[] : [route.query.groups as string] : [];
+  selectedTag.value = route.query.tags ? Array.isArray(route.query.tags) ? route.query.tags as string[] : [route.query.tags as string] : [];
   rows.value = parseInt(route.query.rows as string) || 10;
   first.value = parseInt(route.query.first as string) || 0;
   let inputFocus = (route.query.focus as string) == "true";
