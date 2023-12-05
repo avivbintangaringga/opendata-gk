@@ -3,6 +3,7 @@ export type DetailsArrayResponse = CkanResponse<DetailsResult[]>
 export type DetailsResponse = CkanResponse<DetailsResult>
 export type PackageResultResponse = CkanResponse<PackageResult>
 export type PackageResponse = CkanResponse<Package>
+export type DatastoreSearchResponse = CkanResponse<DatastoreSearchResult>
 
 export interface CkanResponse<T> {
     help: string
@@ -121,3 +122,21 @@ export interface Tag {
     name: string
     state: string
 }
+
+export type DatastoreSearchResult = {
+    include_total: boolean
+    limit: number
+    records_format: string
+    resource_id: string
+    records: Array<any>
+    fields: Array<{
+      id: string
+      type: string
+    }>
+    _links: {
+      start: string
+      next: string
+    }
+    total: number
+    total_was_estimated: boolean
+  }

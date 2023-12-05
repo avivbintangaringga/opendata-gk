@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-row gap-2 mt-12">
+      <div class="flex-row gap-2 mt-12 hidden">
         Made with ❤️ by
         <a
           class="flex flex-row gap-1 items-center"
@@ -62,7 +62,7 @@
           Aviv B.A
         </a>
       </div>
-      <div class="mt-2 mb-2 text-center">
+      <div class="mt-12 mb-2 text-center">
         Copyright © Open Data Gunungkidul {{ new Date().getFullYear() }}. All
         rights reserved
       </div>

@@ -1,5 +1,8 @@
 <template>
-  <div class="relative" id="scroll-target">
+  <div v-if="route.meta.outsideMain">
+    <router-view />
+  </div>
+  <div class="relative" id="scroll-target" v-else>
     <div class="fixed top-0 left-0 right-0 z-10">
       <HeaderBar :dividerVisible="dividierVisible" :key="$route.fullPath" />
     </div>
@@ -17,7 +20,9 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
+const route = useRoute()
 let dividierVisible = ref(false);
 
 const onScroll = (e) => {

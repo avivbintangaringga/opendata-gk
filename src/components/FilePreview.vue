@@ -32,7 +32,7 @@
         <SelectButton
           v-if="type == Type.EXCEL"
           v-model="excelSelectedMode"
-          :options="['Excel', 'Tabel']"
+          :options="['Excel', 'Tabel', 'Grafik']"
           class="mr-8 min-w-fit"
           aria-labelledby="basic"
           :allowEmpty="false"
@@ -65,7 +65,7 @@
             :key="isLoading"
           />
         </div>
-        <div v-else class="h-full mx-4">
+        <div v-if="excelSelectedMode == 'Tabel'" class="h-full mx-4">
           <DataTable
             :value="excelData"
             tableStyle="min-width: 50rem"
@@ -89,6 +89,9 @@
               sortable
             ></Column>
           </DataTable>
+        </div>
+        <div v-if="excelSelectedMode == 'Grafik'" class="h-full mx-4">
+          <GraphView :id="props.id" />
         </div>
       </div>
 
@@ -160,8 +163,9 @@ import "@vue-office/docx/lib/index.css";
 
 import VuePdfApp from "vue3-pdf-app";
 import "vue3-pdf-app/dist/icons/main.css";
+import GraphView from "./GraphView.vue";
 
-const props = defineProps(["visible", "url", "title"]);
+const props = defineProps(["visible", "url", "title", "id"]);
 const emit = defineEmits(["update:visible"]);
 
 const visible = computed({

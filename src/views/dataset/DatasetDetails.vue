@@ -116,13 +116,7 @@
                   label="Preview"
                   class="bg-primary py-2 shrink-0"
                   rounded
-                  @click="
-                    openPreview(
-                      // TODO: Disable CORS PROXY
-                      r.url,
-                      r.name
-                    )
-                  "
+                  @click="openPreview(r.url, r.name, r.id)"
                 >
                   <template #icon>
                     <i-material-symbols:preview class="mr-2" />
@@ -143,11 +137,14 @@
             </DataTable>
           </Dialog>
 
-          <AsyncFilePreview
-            v-model:visible="previewVisible"
-            :url="previewUrl"
-            :title="previewTitle"
-          />
+          <Suspense>
+            <AsyncFilePreview
+              v-model:visible="previewVisible"
+              :url="previewUrl"
+              :title="previewTitle"
+              :id="previewId"
+            />
+          </Suspense>
         </TabPanel>
         <TabPanel header="Grup">
           <div
@@ -191,6 +188,7 @@ let isLoading = ref(true);
 let previewVisible = ref(false);
 let previewUrl = ref<string>();
 let previewTitle = ref<string>();
+let previewId = ref<string>();
 
 const AsyncFilePreview = defineAsyncComponent(
   () => import("../../components/FilePreview.vue")
@@ -251,12 +249,13 @@ const getDateFromNow = (date: string | undefined) => {
   return d.toRelative();
 };
 
-const openPreview = async (url: string, title: string) => {
+const openPreview = async (url: string, title: string, id: string) => {
   let proxifiedUrl = import.meta.env.VITE_CORS_PROXY + url;
 
   previewVisible.value = true;
   previewUrl.value = proxifiedUrl;
   previewTitle.value = title;
+  previewId.value = id;
 };
 
 onMounted(async () => {
